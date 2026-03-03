@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation Tests – Event Sign-Up</title>
+    <style>
+      body   { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+      h1     { font-size: 1.4rem; }
+      h3     { margin: 1.2rem 0 0.3rem; font-size: 1rem; border-bottom: 1px solid #ccc; }
+      .pass  { color: green;  padding: 2px 0; }
+      .fail  { color: crimson; font-weight: bold; padding: 2px 0; }
+      #summary { font-size: 1.1rem; margin-bottom: 1rem; }
+
+      /* Hide the form visually – it must exist in the DOM for validation.js */
+      #signupForm { display: none; }
+    </style>
+  </head>
+  <body>
+    <h1>Event Sign-Up – Validation Tests</h1>
+    <div id="test-output"></div>
+
+    <!--
+      The form must be present in the DOM because validation.js grabs element
+      references at load time with getElementById().
+    -->
+    <form id="signupForm" novalidate>
+      <input type="text"  id="firstName" name="firstName" />
+      <span id="firstNameError"></span>
+      <input type="text"  id="lastName"  name="lastName"  />
+      <span id="lastNameError"></span>
+      <input type="email" id="email"     name="email"     />
+      <span id="emailError"></span>
+      <input type="tel"   id="phone"     name="phone"     />
+      <span id="phoneError"></span>
+      <input type="date"  id="eventDate" name="eventDate" />
+      <span id="eventDateError"></span>
+      <button type="submit" id="submitBtn" disabled>Submit</button>
+    </form>
+
+    <!-- Load the application code first so helpers and DOM refs are available -->
+    <script src="validation.js"></script>
+    <!-- Then run the tests -->
+    <script src="validation.test.js"></script>
+  </body>
+</html>
